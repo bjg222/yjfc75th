@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>YJFC 75th Anniversary Banquet</title>
+    <link rel="stylesheet" id="redux-google-fonts-pinnacle-css" href="https://fonts.googleapis.com/css?family=Raleway%3A100%2C200%2C300%2C400%2C500%2C600%2C700%2C800%2C900%2C100italic%2C200italic%2C300italic%2C400italic%2C500italic%2C600italic%2C700italic%2C800italic%2C900italic&amp;subset=latin&amp;ver=1556558009" type="text/css" media="all">
+    <link href="css/style.css" rel="stylesheet">
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js" type="text/javascript"></script> -->
+    <script src="js/materialize/global.js"></script>
+    <script src="js/materialize/component.js"></script>
+    <script src="js/materialize/cash.js"></script>
+    <script src="js/materialize/forms.js"></script>
+    <script src="js/materialize/buttons.js"></script>
+    <script src="js/materialize/tooltip.js"></script>
+    <script src="js/dropzone/dropzone.js"></script>
+    <script src="js/script.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <section id="header">
+            <div class="row">
+                <h1 class="col">The Yellow Jacket Flying Club turns 75!</h1>
+            </div>
+        </section>
+        <section id="savethedate">
+            <div class="row">
+                <h2 class="col">Save the Date</h2>
+            </div>
+            <div class="row">
+                <h4 class="col">Join us on October 32, 2019 to commemorate this amazing milestone!</h4>
+            </div>
+            <div class="row">
+                <h4 class="col">Dinner and celebrations to be held at the Delta Museum at Harstfield Jackson International Airport</h4>
+            </div>
+            <div class="row">
+                <h5 class="col">Invitations and ticket details to follow</h5>
+            </div>
+        </section>
+        <section id="emaillist">
+            <div class="row">
+                <h3 class="col">Come Celebrate!</h3>
+            </div>
+            <div class="row">
+                <h4 class="col">Enter your information below to request your invitation and get updates</h4>
+            </div>
+            <form id="emaillistform">
+                <div class="row">
+                    <div class="col input-field xl-third">
+                        <input type="text" name="input_name" id="input_name">
+                        <label for="input_name">Name(s)</label>
+                    </div>
+                    <div class="col input-field xl-third">
+                        <input type="email" name="input_email" id="input_email">
+                        <label for="input_email">Email</label>
+                    </div>
+                    <div class="col input-field no-adjust">
+                        <button class="btn" type="submit" name="action">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </section>
+        <section id="memories">
+            <div class="row">
+                <h3 class="col">Share Your YJFC Memories</h3>
+            </div>
+            <div class="row">
+                <h4 class="col">We want to highlight the history of the club and the many lives it's touched</h4>
+            </div>
+            <div class="row">
+                <h4 class="col">Sharing your <a href="#photouploadanchor">pictures and videos</a> or <a href="#storyuploadanchor">favorite stories</a> below</h4>
+            </div>
+        </section>
+        <section id="photoupload">
+            <div class="row">
+                <h4 class="col" id="photouploadanchor">Upload your pictures and videos here</h4>
+            </div>
+            <div class="row">
+                <h5 class="col">Select your photos and videos using the form below.  Please give us a description of what they are and the stories they tell using the text area below or by including a text file or document with the upload.  If you have pictures of multiple events, please either upload each one separately or use the description to tell us which pictures are from which event.  Thanks for helping us keep track of the many memories we'll have to share!</h5>
+            </div>
+            <form id="photouploadform">
+                <div class="row">
+                    <div class="col input-field">
+                        <input type="text" name="input_name" id="input_name">
+                        <label for="input_name">Name(s)</label>
+                    </div>
+                    <div class="col input-field">
+                        <input type="email" name="input_email" id="input_email">
+                        <label for="input_email">Email</label>
+                    </div>
+                    <div class="col input-field">
+                        <input type="text" name="input_photog" id="input_photog">
+                        <label for="input_photog">Photographer(s)</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col input-field">
+                        <textarea class="materialize-textarea" name="input_descrip" id="input_descrip"></textarea>
+                        <label for="input_descrip">Who, what, when, and where?</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col input-field file-field">
+                        <div class="dropzone" id="dropzone" action="photos.php">
+                            <div class="fallback">
+                                <div class="btn">
+                                    <span>File</span>
+                                    <input type="file" multiple>
+                                </div>
+                                <div class="file-path-wrapper">
+                                    <input class="file-path" type="text" placeholder="Upload one or more files">
+                                </div>
+                            </div>
+                            <h4 class="dz-message">Drag and drop your files here, or click to select them.</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col input-field no-adjust">
+                        <button class="btn" type="submit" name="action">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </section>
+        <section id="storyupload">
+            <div class="row">
+                <h4 class="col" id="storyuploadanchor">Tell us your YJFC stories here</h4>
+            </div>
+            <div class="row">
+                <h5 class="col">Use the form below to tell us about your favorite memories of the YJFC!  Be sure to tell us when you were in the club!</h5>
+            </div>
+            <form id="storyuploadform">
+                <div class="row">
+                    <div class="col input-field">
+                        <input type="text" name="input_name" id="input_name">
+                        <label for="input_name">Name(s)</label>
+                    </div>
+                    <div class="col input-field">
+                        <input type="email" name="input_email" id="input_email">
+                        <label for="input_email">Email</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col input-field">
+                        <textarea class="materialize-textarea" name="input_descrip" id="input_descrip"></textarea>
+                        <label for="input_descrip">Who, what, when, and where?</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col input-field no-adjust">
+                        <button class="btn" type="submit" name="action">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </section>
+        <section id="contact">
+            <div class="row">
+                <h3 class="col">Have Questions?</h3>
+            </div>
+            <div class="row">
+                <h4 class="col"><a href="mailto:yjfc75@yjfc.org">Email us</a></h4>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
