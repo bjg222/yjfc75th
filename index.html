@@ -19,45 +19,71 @@
 </head>
 
 <body>
-    <div class="container">
-        <section id="header">
-            <div class="row">
-                <h1 class="col">The Yellow Jacket Flying Club turns 75!</h1>
+    <section id="header">
+        <div class="background"></div>
+        <div class="container">
+            <div class="row items-left">
+                <div class="col no-adjust">
+                    <a href="//yjfc.org"><img src="//yjfc.org/wp-content/uploads/2015/11/YJFC-Logo_Single-Transparent.png"></a>
+                </div>
             </div>
-        </section>
+            <div class="row">
+                <h1 class="col">The YJFC is turning 75!</h1>
+            </div>
+        </div>
+    </section>
+    <div class="container">
         <section id="savethedate">
             <div class="row">
                 <h2 class="col">Save the Date</h2>
             </div>
             <div class="row">
-                <h4 class="col">Join us on October 32, 2019 to commemorate this amazing milestone!</h4>
+                <h4 class="col">Join us on October 24, 2020 to commemorate this amazing milestone at our 75th Anniversary Gala!</h4>
             </div>
             <div class="row">
                 <h4 class="col">Dinner and celebrations to be held at the Delta Museum at Harstfield Jackson International Airport</h4>
             </div>
             <div class="row">
-                <h5 class="col">Invitations and ticket details to follow</h5>
+                <h5 class="col">More information, including ticket details and invitations, to follow</h5>
             </div>
         </section>
-        <section id="emaillist">
+        <section id="list">
             <div class="row">
-                <h3 class="col">Come Celebrate!</h3>
+                <h3 class="col" id="list_anchor">Come Celebrate!</h3>
             </div>
             <div class="row">
-                <h4 class="col">Enter your information below to request your invitation and get updates</h4>
+                <h4 class="col">Enter your information below to get updates on gala details, ticket sales, and how to request an invitation</h4>
             </div>
-            <form id="emaillistform">
+            <form id="list_form">
                 <div class="row">
                     <div class="col input-field xl-third">
-                        <input type="text" name="input_name" id="input_name">
-                        <label for="input_name">Name(s)</label>
+                        <input type="text" name="list_name" id="list_name">
+                        <label for="list_name">Name(s)</label>
                     </div>
                     <div class="col input-field xl-third">
-                        <input type="email" name="input_email" id="input_email">
-                        <label for="input_email">Email</label>
+                        <input type="email" name="list_email" id="list_email">
+                        <label for="list_email">Email</label>
                     </div>
+                </div>
+                <div class="row">
                     <div class="col input-field no-adjust">
-                        <button class="btn" type="submit" name="action">Submit</button>
+                        <button class="btn" type="submit" name="list_submit" id="list_submit">Submit</button>
+                    </div>
+                </div>
+                <div class="overlay">
+                    <div class="working">
+                        <h5 class="message">Saving your info...</h5>
+                        <div class="spinner">
+                            <div class="preloader-wrapper active small">
+                                <div class="spinner-layer spinner-blue"><div class="circle-clipper left"><div class="circle"></div></div><div class="gap-patch"><div class="circle"></div></div><div class="circle-clipper right"><div class="circle"></div></div></div>
+                                <div class="spinner-layer spinner-red"><div class="circle-clipper left"><div class="circle"></div></div><div class="gap-patch"><div class="circle"></div></div><div class="circle-clipper right"><div class="circle"></div></div></div>
+                                <div class="spinner-layer spinner-yellow"><div class="circle-clipper left"><div class="circle"></div></div><div class="gap-patch"><div class="circle"></div></div><div class="circle-clipper right"><div class="circle"></div></div></div>
+                                <div class="spinner-layer spinner-green"><div class="circle-clipper left"><div class="circle"></div></div><div class="gap-patch"><div class="circle"></div></div><div class="circle-clipper right"><div class="circle"></div></div></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="complete">
+                        <h5 class="message">You're on the list, watch your email for updates!</h5>
                     </div>
                 </div>
             </form>
@@ -70,38 +96,41 @@
                 <h4 class="col">We want to highlight the history of the club and the many lives it's touched</h4>
             </div>
             <div class="row">
-                <h4 class="col">Sharing your <a href="#photouploadanchor">pictures and videos</a> or <a href="#storyuploadanchor">favorite stories</a> below</h4>
+                <h4 class="col">Share your <a href="#photouploadanchor">pictures and videos</a> or <a href="#storyuploadanchor">favorite stories</a> below</h4>
             </div>
         </section>
-        <section id="photoupload">
+        <section id="upload">
             <div class="row">
-                <h4 class="col" id="photouploadanchor">Upload your pictures and videos here</h4>
+                <h4 class="col" id="upload_anchor">Upload your pictures and videos here</h4>
             </div>
             <div class="row">
-                <h5 class="col">Select your photos and videos using the form below.  Please give us a description of what they are and the stories they tell using the text area below or by including a text file or document with the upload.  If you have pictures of multiple events, please either upload each one separately or use the description to tell us which pictures are from which event.  Thanks for helping us keep track of the many memories we'll have to share!</h5>
+                <h5 class="col">Select your photos and videos using the form below</h5>
             </div>
-            <form id="photouploadform">
+            <div class="row">
+                <h6 class="col">Please give us a description of what they are and the stories they tell.  You can use the text area below or include a document with the upload.  If you have pictures of multiple events, please either submit the form separately each one or use the description to tell us which pictures are from which event.  The upload form will accept most kinds of pictures, videos, and audio files, as well text files, documents, and zip files.  Thanks for helping us keep track of the many memories we'll have to share!</h6>
+            </div>
+            <form id="upload_form">
                 <div class="row">
                     <div class="col input-field">
-                        <input type="text" name="input_name" id="input_name">
-                        <label for="input_name">Name(s)</label>
+                        <input type="text" name="upload_name" id="upload_name">
+                        <label for="upload_name">Name(s)</label>
                     </div>
                     <div class="col input-field">
-                        <input type="email" name="input_email" id="input_email">
-                        <label for="input_email">Email</label>
+                        <input type="email" name="upload_email" id="upload_email">
+                        <label for="upload_email">Email</label>
                     </div>
                     <div class="col input-field">
-                        <input type="text" name="input_photog" id="input_photog">
-                        <label for="input_photog">Photographer(s)</label>
+                        <input type="text" name="upload_photog" id="upload_photog">
+                        <label for="upload_photog">Photographer(s)</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col input-field">
-                        <textarea class="materialize-textarea" name="input_descrip" id="input_descrip"></textarea>
+                        <textarea class="materialize-textarea" name="upload_descrip" id="upload_descrip"></textarea>
                         <label for="input_descrip">Who, what, when, and where?</label>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row above-overlay">
                     <div class="col input-field file-field">
                         <div class="dropzone" id="dropzone" action="photos.php">
                             <div class="fallback">
@@ -113,44 +142,76 @@
                                     <input class="file-path" type="text" placeholder="Upload one or more files">
                                 </div>
                             </div>
-                            <h4 class="dz-message">Drag and drop your files here, or click to select them.</h4>
+                            <h4 class="dz-message">Drag and drop your files here, or click to select them</h4>
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col input-field no-adjust">
-                        <button class="btn" type="submit" name="action">Submit</button>
+                        <button class="btn" type="submit" name="upload_submit" id="upload_submit">Submit</button>
+                    </div>
+                </div>
+                <div class="overlay">
+                    <div class="working">
+                        <h5 class="message">Uploading files...</h5>
+                        <div class="spinner">
+                            <div class="preloader-wrapper active big">
+                                <div class="spinner-layer spinner-blue"><div class="circle-clipper left"><div class="circle"></div></div><div class="gap-patch"><div class="circle"></div></div><div class="circle-clipper right"><div class="circle"></div></div></div>
+                                <div class="spinner-layer spinner-red"><div class="circle-clipper left"><div class="circle"></div></div><div class="gap-patch"><div class="circle"></div></div><div class="circle-clipper right"><div class="circle"></div></div></div>
+                                <div class="spinner-layer spinner-yellow"><div class="circle-clipper left"><div class="circle"></div></div><div class="gap-patch"><div class="circle"></div></div><div class="circle-clipper right"><div class="circle"></div></div></div>
+                                <div class="spinner-layer spinner-green"><div class="circle-clipper left"><div class="circle"></div></div><div class="gap-patch"><div class="circle"></div></div><div class="circle-clipper right"><div class="circle"></div></div></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="complete">
+                        <h5 class="message">All saved, thanks for sharing!</h5>
                     </div>
                 </div>
             </form>
         </section>
-        <section id="storyupload">
+        <section id="story">
             <div class="row">
-                <h4 class="col" id="storyuploadanchor">Tell us your YJFC stories here</h4>
+                <h4 class="col" id="story_anchor">Tell us your YJFC stories here</h4>
             </div>
             <div class="row">
-                <h5 class="col">Use the form below to tell us about your favorite memories of the YJFC!  Be sure to tell us when you were in the club!</h5>
+                <h5 class="col">Use the form below to tell us about when you were in the clube and your favorite memories of the time</h5>
             </div>
-            <form id="storyuploadform">
+            <form id="story_form">
                 <div class="row">
                     <div class="col input-field">
-                        <input type="text" name="input_name" id="input_name">
-                        <label for="input_name">Name(s)</label>
+                        <input type="text" name="story_name" id="story_name">
+                        <label for="story_name">Name(s)</label>
                     </div>
                     <div class="col input-field">
-                        <input type="email" name="input_email" id="input_email">
-                        <label for="input_email">Email</label>
+                        <input type="email" name="story_email" id="story_email">
+                        <label for="story_email">Email</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col input-field">
-                        <textarea class="materialize-textarea" name="input_descrip" id="input_descrip"></textarea>
+                        <textarea class="materialize-textarea" name="story_descrip" id="story_descrip"></textarea>
                         <label for="input_descrip">Who, what, when, and where?</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col input-field no-adjust">
-                        <button class="btn" type="submit" name="action">Submit</button>
+                        <button class="btn" type="submit" name="story_submit" id="story_submit">Submit</button>
+                    </div>
+                </div>
+                <div class="overlay">
+                    <div class="working">
+                        <h5 class="message">Recording your story...</h5>
+                        <div class="spinner">
+                            <div class="preloader-wrapper active">
+                                <div class="spinner-layer spinner-blue"><div class="circle-clipper left"><div class="circle"></div></div><div class="gap-patch"><div class="circle"></div></div><div class="circle-clipper right"><div class="circle"></div></div></div>
+                                <div class="spinner-layer spinner-red"><div class="circle-clipper left"><div class="circle"></div></div><div class="gap-patch"><div class="circle"></div></div><div class="circle-clipper right"><div class="circle"></div></div></div>
+                                <div class="spinner-layer spinner-yellow"><div class="circle-clipper left"><div class="circle"></div></div><div class="gap-patch"><div class="circle"></div></div><div class="circle-clipper right"><div class="circle"></div></div></div>
+                                <div class="spinner-layer spinner-green"><div class="circle-clipper left"><div class="circle"></div></div><div class="gap-patch"><div class="circle"></div></div><div class="circle-clipper right"><div class="circle"></div></div></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="complete">
+                        <h5 class="message">Thanks for sharing your memories!</h5>
                     </div>
                 </div>
             </form>
@@ -160,7 +221,7 @@
                 <h3 class="col">Have Questions?</h3>
             </div>
             <div class="row">
-                <h4 class="col"><a href="mailto:yjfc75@yjfc.org">Email us</a></h4>
+                <h4 class="col">Email us at <a href="mailto:seventy-five@yjfc.org">seventy-five@yjfc.org</a></h4>
             </div>
         </section>
     </div>

@@ -7,3 +7,44 @@ Dropzone.options.dropzone = {
     maxThumbnailFilesize: 15,
     filesizeBase: 1024
 };
+
+(new Promise(r => (document.readyState == 'loading' ? document.addEventListener('DOMContentLoaded', r) : r()))).then(() => {
+    document.querySelector('#list_submit').addEventListener('click', onListSubmit);
+    document.querySelector('#upload_submit').addEventListener('click', onUploadSubmit);
+    document.querySelector('#story_submit').addEventListener('click', onStorySubmit);
+});
+
+function onListSubmit(ev) {
+    ev.preventDefault();
+    document.querySelector('#list_form').classList.add('working');
+    //TODO: make AJAX call to upload (replace promise)
+    (new Promise(r => setTimeout(() => r(), 2000))).then(() => {
+        document.querySelector('#list_form').classList.remove('working');
+        document.querySelector('#list_form').classList.add('complete');
+    });
+}
+
+function onUploadSubmit(ev) {
+    ev.preventDefault();
+    document.querySelector('#upload_form').classList.add('working');
+    /*TODO:
+    Disable dropzone click/drop
+    upload text & get folder id
+    start dropzone upload with folder id
+    (replace promise)
+    */
+    (new Promise(r => setTimeout(() => r(), 10000))).then(() => {
+        document.querySelector('#upload_form').classList.remove('working');
+        document.querySelector('#upload_form').classList.add('complete');
+    });
+}
+
+function onStorySubmit(ev) {
+    ev.preventDefault();
+    document.querySelector('#story_form').classList.add('working');
+    //TODO: make AJAX call to upload (replace promise)
+    (new Promise(r => setTimeout(() => r(), 2000))).then(() => {
+        document.querySelector('#story_form').classList.remove('working');
+        document.querySelector('#story_form').classList.add('complete');
+    });
+}
