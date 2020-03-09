@@ -15,13 +15,55 @@ Dropzone.options.dropzone = {
 });
 
 function onListSubmit(ev) {
-    ev.preventDefault();
-    document.querySelector('#list_form').classList.add('working');
-    //TODO: make AJAX call to upload (replace promise)
-    (new Promise(r => setTimeout(() => r(), 2000))).then(() => {
-        document.querySelector('#list_form').classList.remove('working');
-        document.querySelector('#list_form').classList.add('complete');
-    });
+    // M.validate_field(document.querySelector('#list_name'));
+    // M.validate_field(document.querySelector('#list_email'));
+    // if (document.querySelector('#list_name').classList.contains('invalid') ||
+    //     document.querySelector('#list_email').classList.contains('invalid')) {
+    //     ev.preventDefault();
+    //     return;
+    // }
+    submitForm(ev, 'list_form', ['list_name', 'list_email']);
+    // if (!doValidate(fields)) {
+    //     ev.preventDefault();
+    //     return;
+    // }
+    // document.querySelector('#list_submit').disabled = true;
+    // document.querySelector('#list_form').classList.add('working');
+    // try {
+    //     // data =
+    //     //     'list_name=' + encodeURIComponent(document.querySelector('#list_name').value) + '&' +
+    //     //     'list_email=' + encodeURIComponent(document.querySelector('#list_email').value);
+    //     data = makePostData(fields);
+    //     fetchy('php/list.php', {
+    //         method: 'POST',
+    //         body: data,
+    //         headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+    //     }).then(res => res.json()).then(data => {
+    //         console.log(data);
+    //         if (!data.result)
+    //             return Promise.reject(data.error);
+    //         document.querySelector('#list_form').classList.remove('working');
+    //         document.querySelector('#list_form').classList.add('complete');
+    //         delay(5000).then(() => {
+    //             document.querySelector('#list_submit').disabled = false;
+    //             document.querySelector('#list_form').classList.remove('complete');
+    //         })
+    //     }).catch(error => {
+    //         console.log(error)
+    //         document.querySelector('#list_form').classList.remove('working');
+    //         document.querySelector('#list_form').classList.add('error');
+    //         document.querySelector('#list_form .again').addEventListener('click', ev => {
+    //             ev.preventDefault();
+    //             document.querySelector('#list_submit').disabled = false;
+    //             document.querySelector('#list_form').classList.remove('error');
+    //             ev.target.removeEventListener(ev.type, arguments.callee);
+    //         }, { once: true });
+    //     });
+    //     ev.preventDefault();
+    // } catch {
+    //     console.log('failed');
+    //     document.querySelector('#list_form').submit();
+    // }
 }
 
 function onUploadSubmit(ev) {
@@ -40,11 +82,129 @@ function onUploadSubmit(ev) {
 }
 
 function onStorySubmit(ev) {
-    ev.preventDefault();
-    document.querySelector('#story_form').classList.add('working');
-    //TODO: make AJAX call to upload (replace promise)
-    (new Promise(r => setTimeout(() => r(), 2000))).then(() => {
-        document.querySelector('#story_form').classList.remove('working');
-        document.querySelector('#story_form').classList.add('complete');
-    });
+    // M.validate_field(document.querySelector('#story_name'));
+    // M.validate_field(document.querySelector('#story_email'));
+    // M.validate_field(document.querySelector('#story_descrip'));
+    // if (document.querySelector('#story_name').classList.contains('invalid') ||
+    //     document.querySelector('#story_email').classList.contains('invalid') ||
+    //     document.querySelector('#story_descrip').classList.contains('invalid')) {
+    //     ev.preventDefault();
+    //     return;
+    // }
+    submitForm(ev, 'story_form', ['story_name', 'story_email', 'story_descrip']);
+    // if (!doValidate(fields)) {
+    //     ev.preventDefault();
+    //     return;
+    // }
+    // document.querySelector('#story_submit').disabled = true;
+    // document.querySelector('#story_form').classList.add('working');
+    // try {
+    //     // data =
+    //     //     'story_name=' + encodeURIComponent(document.querySelector('#story_name').value) + '&' +
+    //     //     'story_email=' + encodeURIComponent(document.querySelector('#story_email').value) + '&' +
+    //     //     'story_descrip=' + encodeURIComponent(document.querySelector('#story_descrip').value);
+    //     data = makePostData(fields);
+    //     fetch('php/story.php', {
+    //         method: 'POST',
+    //         body: data,
+    //         headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+    //     }).then(res => res.json()).then(data => {
+    //         console.log(data);
+    //         if (!data.result)
+    //             return Promise.reject(data.error);
+    //         document.querySelector('#story_form').classList.remove('working');
+    //         document.querySelector('#story_form').classList.add('complete');
+    //         delay(5000).then(() => {
+    //             document.querySelector('#story_submit').disabled = false;
+    //             document.querySelector('#story_form').classList.remove('complete');
+    //         })
+    //     }).catch(error => {
+    //         console.log(error)
+    //         document.querySelector('#story_form').classList.remove('working');
+    //         document.querySelector('#story_form').classList.add('error');
+    //         document.querySelector('#story_form .again').addEventListener('click', ev => {
+    //             ev.preventDefault();
+    //             document.querySelector('#story_submit').disabled = false;
+    //             document.querySelector('#story_form').classList.remove('error');
+    //             ev.target.removeEventListener(ev.type, arguments.callee);
+    //         }, { once: true });
+    //     });
+    //     ev.preventDefault();
+    // } catch {
+    //     console.log('failed');
+    //     document.querySelector('#story_form').submit();
+    // }
+}
+
+let delay = (to) => (new Promise(r => setTimeout(() => r(), to)));
+
+function submitForm(ev, form, fields) {
+    if (!doValidate(fields)) {
+        ev.preventDefault();
+        return;
+    }
+    try {
+        setWorking(form);
+        fetch(getUrl(form), {
+            method: 'POST',
+            body: makePostData(fields),
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+        }).then(res => res.json()).then(data => {
+            if (!data.result)
+                return Promise.reject(data.error);
+            setComplete(form);
+        }).catch(error => {
+            console.log(error);
+            setError(form);
+        });
+        ev.preventDefault();
+    } catch {
+        console.log('failed');
+        doSubmit(form)
+    }
+}
+
+function doValidate(fields) {
+    fields.forEach(f => M.validate_field(document.querySelector('#' + f)));
+    let status = fields.map(f => document.querySelector('#' + f).classList.contains('invalid'));
+    return !status.some(Boolean);
+}
+
+function makePostData(fields) {
+    let data = fields.map(f => f + '=' + encodeURIComponent(document.querySelector('#' + f).value));
+    return data.join('&');
+}
+
+function setWorking(form) {
+    document.querySelector('#' + form + ' button[type=submit]').disabled = true;
+    document.querySelector('#' + form).classList.add('working');
+}
+
+function setComplete(form, timeout) {
+    document.querySelector('#' + form).classList.remove('working');
+    document.querySelector('#' + form).classList.add('complete');
+    delay(timeout || 5000).then(() => {
+        document.querySelector('#' + form + ' button[type=submit]').disabled = false;
+        document.querySelector('#' + form).classList.remove('complete');
+    })
+}
+
+function setError(form) {
+    document.querySelector('#' + form).classList.remove('working');
+    document.querySelector('#' + form).classList.add('error');
+    document.querySelector('#' + form + ' .again').addEventListener('click', ev => {
+        ev.preventDefault();
+        document.querySelector('#' + form + ' button[type=submit]').disabled = false;
+        document.querySelector('#' + form).classList.remove('error');
+        ev.target.removeEventListener(ev.type, arguments.callee);
+    }, { once: true });
+}
+
+function getUrl(form) {
+    return document.querySelector('#' + form).action;
+}
+
+function doSubmit(form) {
+    document.querySelector('#' + form).submit();
+
 }

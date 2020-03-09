@@ -10178,11 +10178,11 @@ form .overlay .message {
 form .overlay .spinner {
   padding: 0.2rem;
 }
-form.working .overlay, form.complete .overlay {
+form.working .overlay, form.complete .overlay, form.error .overlay {
   visibility: visible;
   opacity: 1;
 }
-form.working .working, form.complete .complete {
+form.working .working, form.complete .complete, form.error .error {
   display: flex;
 }
 

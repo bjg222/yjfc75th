@@ -44,7 +44,7 @@
                 <h4 class="col">Dinner and celebrations to be held at the Delta Museum at Harstfield Jackson International Airport</h4>
             </div>
             <div class="row">
-                <h5 class="col">More information, including ticket details and invitations, to follow</h5>
+                <h5 class="col">More information, including ticket details and hotel reservations, to follow</h5>
             </div>
         </section>
         <section id="list">
@@ -52,17 +52,20 @@
                 <h3 class="col" id="list_anchor">Come Celebrate!</h3>
             </div>
             <div class="row">
-                <h4 class="col">Enter your information below to get updates on gala details, ticket sales, and how to request an invitation</h4>
+                <h4 class="col">Enter your name and email below to get updates on event details, ticket sales, hotel information, and more</h4>
             </div>
-            <form id="list_form">
+            <form method="POST" action="php/list.php" id="list_form">
+                <input type="hidden" name="list_flag" id="list_flag" value="1">
                 <div class="row">
                     <div class="col input-field xl-third">
-                        <input type="text" name="list_name" id="list_name">
+                        <input type="text" name="list_name" id="list_name" class="validate required">
                         <label for="list_name">Name(s)</label>
+                        <span class="helper-text" data-error="Please enter your name"></span>
                     </div>
                     <div class="col input-field xl-third">
-                        <input type="email" name="list_email" id="list_email">
+                        <input type="email" name="list_email" id="list_email" class="validate required">
                         <label for="list_email">Email</label>
+                        <span class="helper-text" data-error="Please check that your email is valid"></span>
                     </div>
                 </div>
                 <div class="row">
@@ -85,6 +88,10 @@
                     <div class="complete">
                         <h5 class="message">You're on the list, watch your email for updates!</h5>
                     </div>
+                    <div class="error">
+                        <h5 class="message">Sorry, an error has occured</h5>
+                        <h6 class="message"><a href="#" class="again">Try again</a> or <a href="#contact">Email us for assistance</a></h6>
+                    </div>
                 </div>
             </form>
         </section>
@@ -96,7 +103,7 @@
                 <h4 class="col">We want to highlight the history of the club and the many lives it's touched</h4>
             </div>
             <div class="row">
-                <h4 class="col">Share your <a href="#photouploadanchor">pictures and videos</a> or <a href="#storyuploadanchor">favorite stories</a> below</h4>
+                <h4 class="col">Share your <a href="#upload_anchor">pictures and videos</a> or <a href="#story_anchor">favorite stories</a> below</h4>
             </div>
         </section>
         <section id="upload">
@@ -112,21 +119,21 @@
             <form id="upload_form">
                 <div class="row">
                     <div class="col input-field">
-                        <input type="text" name="upload_name" id="upload_name">
+                        <input type="text" name="upload_name" id="upload_name" class="validate required">
                         <label for="upload_name">Name(s)</label>
                     </div>
                     <div class="col input-field">
-                        <input type="email" name="upload_email" id="upload_email">
+                        <input type="email" name="upload_email" id="upload_email" class="validate required">
                         <label for="upload_email">Email</label>
                     </div>
                     <div class="col input-field">
-                        <input type="text" name="upload_photog" id="upload_photog">
+                        <input type="text" name="upload_photog" id="upload_photog" class="validate required">
                         <label for="upload_photog">Photographer(s)</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col input-field">
-                        <textarea class="materialize-textarea" name="upload_descrip" id="upload_descrip"></textarea>
+                        <textarea name="upload_descrip" id="upload_descrip" class="materialize-textarea validate required"></textarea>
                         <label for="input_descrip">Who, what, when, and where?</label>
                     </div>
                 </div>
@@ -166,6 +173,10 @@
                     <div class="complete">
                         <h5 class="message">All saved, thanks for sharing!</h5>
                     </div>
+                    <div class="error">
+                        <h5 class="message">Sorry, an error has occured</h5>
+                        <h6 class="message"><a href="#" class="again">Try again</a> or <a href="#contact">Email us for assistance</a></h6>
+                    </div>
                 </div>
             </form>
         </section>
@@ -174,23 +185,26 @@
                 <h4 class="col" id="story_anchor">Tell us your YJFC stories here</h4>
             </div>
             <div class="row">
-                <h5 class="col">Use the form below to tell us about when you were in the clube and your favorite memories of the time</h5>
+                <h5 class="col">Use the form below to tell us about when you were in the club and your favorite memories of the time</h5>
             </div>
             <form id="story_form">
                 <div class="row">
                     <div class="col input-field">
-                        <input type="text" name="story_name" id="story_name">
+                        <input type="text" name="story_name" id="story_name" class="validate required">
                         <label for="story_name">Name(s)</label>
+                        <span class="helper-text" data-error="Please enter your name"></span>
                     </div>
                     <div class="col input-field">
-                        <input type="email" name="story_email" id="story_email">
+                        <input type="email" name="story_email" id="story_email" class="validate required">
                         <label for="story_email">Email</label>
+                        <span class="helper-text" data-error="Please check that your email is valid"></span>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col input-field">
-                        <textarea class="materialize-textarea" name="story_descrip" id="story_descrip"></textarea>
+                        <textarea name="story_descrip" id="story_descrip" class="materialize-textarea validate required"></textarea>
                         <label for="input_descrip">Who, what, when, and where?</label>
+                        <span class="helper-text" data-error="Please tell us your story!"></span>
                     </div>
                 </div>
                 <div class="row">
@@ -213,15 +227,19 @@
                     <div class="complete">
                         <h5 class="message">Thanks for sharing your memories!</h5>
                     </div>
+                    <div class="error">
+                        <h5 class="message">Sorry, an error has occured</h5>
+                        <h6 class="message"><a href="#" class="again">Try again</a> or <a href="#contact">Email us for assistance</a></h6>
+                    </div>
                 </div>
             </form>
         </section>
         <section id="contact">
             <div class="row">
-                <h3 class="col">Have Questions?</h3>
+                <h3 class="col">Information and Sponsorship Opportunities</h3>
             </div>
             <div class="row">
-                <h4 class="col">Email us at <a href="mailto:seventy-five@yjfc.org">seventy-five@yjfc.org</a></h4>
+                <h4 class="col">Email us at <a href="mailto:seventy-fifth@yjfc.org">seventy-fifth@yjfc.org</a></h4>
             </div>
         </section>
     </div>

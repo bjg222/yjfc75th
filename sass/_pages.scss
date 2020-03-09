@@ -88,7 +88,8 @@ form {
     }
 
     &.working,
-    &.complete {
+    &.complete,
+    &.error {
         .overlay {
             visibility: visible;
             opacity: 1;
@@ -96,7 +97,8 @@ form {
     }
 
     &.working .working,
-    &.complete .complete {
+    &.complete .complete,
+    &.error .error {
         display: flex;
     }
 }
