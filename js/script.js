@@ -12,133 +12,25 @@ Dropzone.options.dropzone = {
     document.querySelector('#list_submit').addEventListener('click', onListSubmit);
     document.querySelector('#upload_submit').addEventListener('click', onUploadSubmit);
     document.querySelector('#story_submit').addEventListener('click', onStorySubmit);
+    if (location.search) {
+        let params = new URLSearchParams(location.search);
+        let result = params.get('result');
+        let error = params.get('error');
+        let form = params.get('form');
+        if (form && result !== null) {
+            if (+result) {
+                setComplete(form + '_form');
+            } else {
+                console.log(error);
+                setError(form + '_form');
+            }
+        }
+    }
 });
 
 function onListSubmit(ev) {
-    // M.validate_field(document.querySelector('#list_name'));
-    // M.validate_field(document.querySelector('#list_email'));
-    // if (document.querySelector('#list_name').classList.contains('invalid') ||
-    //     document.querySelector('#list_email').classList.contains('invalid')) {
-    //     ev.preventDefault();
-    //     return;
-    // }
-    submitForm(ev, 'list_form', ['list_name', 'list_email']);
-    // if (!doValidate(fields)) {
-    //     ev.preventDefault();
-    //     return;
-    // }
-    // document.querySelector('#list_submit').disabled = true;
-    // document.querySelector('#list_form').classList.add('working');
-    // try {
-    //     // data =
-    //     //     'list_name=' + encodeURIComponent(document.querySelector('#list_name').value) + '&' +
-    //     //     'list_email=' + encodeURIComponent(document.querySelector('#list_email').value);
-    //     data = makePostData(fields);
-    //     fetchy('php/list.php', {
-    //         method: 'POST',
-    //         body: data,
-    //         headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
-    //     }).then(res => res.json()).then(data => {
-    //         console.log(data);
-    //         if (!data.result)
-    //             return Promise.reject(data.error);
-    //         document.querySelector('#list_form').classList.remove('working');
-    //         document.querySelector('#list_form').classList.add('complete');
-    //         delay(5000).then(() => {
-    //             document.querySelector('#list_submit').disabled = false;
-    //             document.querySelector('#list_form').classList.remove('complete');
-    //         })
-    //     }).catch(error => {
-    //         console.log(error)
-    //         document.querySelector('#list_form').classList.remove('working');
-    //         document.querySelector('#list_form').classList.add('error');
-    //         document.querySelector('#list_form .again').addEventListener('click', ev => {
-    //             ev.preventDefault();
-    //             document.querySelector('#list_submit').disabled = false;
-    //             document.querySelector('#list_form').classList.remove('error');
-    //             ev.target.removeEventListener(ev.type, arguments.callee);
-    //         }, { once: true });
-    //     });
-    //     ev.preventDefault();
-    // } catch {
-    //     console.log('failed');
-    //     document.querySelector('#list_form').submit();
-    // }
-}
-
-function onUploadSubmit(ev) {
-    ev.preventDefault();
-    document.querySelector('#upload_form').classList.add('working');
-    /*TODO:
-    Disable dropzone click/drop
-    upload text & get folder id
-    start dropzone upload with folder id
-    (replace promise)
-    */
-    (new Promise(r => setTimeout(() => r(), 10000))).then(() => {
-        document.querySelector('#upload_form').classList.remove('working');
-        document.querySelector('#upload_form').classList.add('complete');
-    });
-}
-
-function onStorySubmit(ev) {
-    // M.validate_field(document.querySelector('#story_name'));
-    // M.validate_field(document.querySelector('#story_email'));
-    // M.validate_field(document.querySelector('#story_descrip'));
-    // if (document.querySelector('#story_name').classList.contains('invalid') ||
-    //     document.querySelector('#story_email').classList.contains('invalid') ||
-    //     document.querySelector('#story_descrip').classList.contains('invalid')) {
-    //     ev.preventDefault();
-    //     return;
-    // }
-    submitForm(ev, 'story_form', ['story_name', 'story_email', 'story_descrip']);
-    // if (!doValidate(fields)) {
-    //     ev.preventDefault();
-    //     return;
-    // }
-    // document.querySelector('#story_submit').disabled = true;
-    // document.querySelector('#story_form').classList.add('working');
-    // try {
-    //     // data =
-    //     //     'story_name=' + encodeURIComponent(document.querySelector('#story_name').value) + '&' +
-    //     //     'story_email=' + encodeURIComponent(document.querySelector('#story_email').value) + '&' +
-    //     //     'story_descrip=' + encodeURIComponent(document.querySelector('#story_descrip').value);
-    //     data = makePostData(fields);
-    //     fetch('php/story.php', {
-    //         method: 'POST',
-    //         body: data,
-    //         headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
-    //     }).then(res => res.json()).then(data => {
-    //         console.log(data);
-    //         if (!data.result)
-    //             return Promise.reject(data.error);
-    //         document.querySelector('#story_form').classList.remove('working');
-    //         document.querySelector('#story_form').classList.add('complete');
-    //         delay(5000).then(() => {
-    //             document.querySelector('#story_submit').disabled = false;
-    //             document.querySelector('#story_form').classList.remove('complete');
-    //         })
-    //     }).catch(error => {
-    //         console.log(error)
-    //         document.querySelector('#story_form').classList.remove('working');
-    //         document.querySelector('#story_form').classList.add('error');
-    //         document.querySelector('#story_form .again').addEventListener('click', ev => {
-    //             ev.preventDefault();
-    //             document.querySelector('#story_submit').disabled = false;
-    //             document.querySelector('#story_form').classList.remove('error');
-    //             ev.target.removeEventListener(ev.type, arguments.callee);
-    //         }, { once: true });
-    //     });
-    //     ev.preventDefault();
-    // } catch {
-    //     console.log('failed');
-    //     document.querySelector('#story_form').submit();
-    // }
-}
-
-let delay = (to) => (new Promise(r => setTimeout(() => r(), to)));
-
-function submitForm(ev, form, fields) {
+    let form = 'list_form',
+        fields = ['list_name', 'list_email'];
     if (!doValidate(fields)) {
         ev.preventDefault();
         return;
@@ -164,6 +56,70 @@ function submitForm(ev, form, fields) {
     }
 }
 
+function onUploadSubmit(ev) {
+    let form = 'upload_form',
+        fields = ['upload_name', 'upload_email'];
+    if (!doValidate(fields)) {
+        ev.preventDefault();
+        return;
+    }
+    /*TODO:
+    Disable dropzone click/drop
+    upload text & get folder id
+    start dropzone upload with folder id
+    (replace promise)
+    */
+    try {
+        setWorking(form);
+        fetch(getUrl(form), {
+            method: 'POST',
+            body: makePostData(fields),
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+        }).then(res => res.json()).then(data => {
+            if (!data.result)
+                return Promise.reject(data.error);
+            setComplete(form);
+        }).catch(error => {
+            console.log(error);
+            setError(form);
+        });
+        ev.preventDefault();
+    } catch {
+        console.log('failed');
+        doSubmit(form)
+    }
+}
+
+function onStorySubmit(ev) {
+    let form = 'story_form',
+        fields = ['story_name', 'story_email', 'story_descrip'];
+    if (!doValidate(fields)) {
+        ev.preventDefault();
+        return;
+    }
+    try {
+        setWorking(form);
+        fetch(getUrl(form), {
+            method: 'POST',
+            body: makePostData(fields),
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+        }).then(res => res.json()).then(data => {
+            if (!data.result)
+                return Promise.reject(data.error);
+            setComplete(form);
+        }).catch(error => {
+            console.log(error);
+            setError(form);
+        });
+        ev.preventDefault();
+    } catch {
+        console.log('failed');
+        doSubmit(form)
+    }
+}
+
+let delay = (to) => (new Promise(r => setTimeout(() => r(), to)));
+
 function doValidate(fields) {
     fields.forEach(f => M.validate_field(document.querySelector('#' + f)));
     let status = fields.map(f => document.querySelector('#' + f).classList.contains('invalid'));
@@ -184,6 +140,7 @@ function setComplete(form, timeout) {
     document.querySelector('#' + form).classList.remove('working');
     document.querySelector('#' + form).classList.add('complete');
     delay(timeout || 5000).then(() => {
+        document.querySelector('#' + form).reset();
         document.querySelector('#' + form + ' button[type=submit]').disabled = false;
         document.querySelector('#' + form).classList.remove('complete');
     })

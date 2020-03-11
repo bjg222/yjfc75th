@@ -24,7 +24,7 @@
         <div class="container">
             <div class="row items-left">
                 <div class="col no-adjust">
-                    <a href="//yjfc.org"><img src="//yjfc.org/wp-content/uploads/2015/11/YJFC-Logo_Single-Transparent.png"></a>
+                    <a href="//yjfc.org"><img src="//yjfc.org/wp-content/uploads/2015/11/YJFC-Logo_Single-Transparent.png" alt="Yellow Jacket Flying Club Logo"></a>
                 </div>
             </div>
             <div class="row">
@@ -40,11 +40,26 @@
             <div class="row">
                 <h4 class="col">Join us on October 24, 2020 to commemorate this amazing milestone at our 75th Anniversary Gala!</h4>
             </div>
-            <div class="row">
-                <h4 class="col">Dinner and celebrations to be held at the Delta Museum at Harstfield Jackson International Airport</h4>
+            <div class="row items-middle">
+                <div class="col no-adjust"><a href="https://www.deltamuseum.org/"><img id="deltamuseum" src="img/deltamuseum.png" alt="Delta Museum Logo"></a></div>
+                <h5 class="col" id="gala">
+                    Plated dinner and drinks<br>
+                    on the evening of Saturday, October 24<br>
+                    at the Delta Flight Museum<br>
+                    Black tie optional
+                </h5>
             </div>
-            <div class="row">
-                <h5 class="col">More information, including ticket details and hotel reservations, to follow</h5>
+            <div class="row items-middle">
+                <h5 class="col" id="events">
+                    Additional weekend activities include:<br>
+                    <br>
+                    Welcome reception, Friday evening<br>
+                    Airport tour and cookout, Saturday at PDK<br>
+                    Send off, Sunday morning<br>
+                    <br>
+                    Discounted hotel reservations will be available
+                </h5>
+                <div class="col no-adjust"><img id="yjfcbadge" src="img/yjfcbadge.png" alt="YJFC Badge"></div>
             </div>
         </section>
         <section id="list">
@@ -95,6 +110,14 @@
                 </div>
             </form>
         </section>
+        <section id="contact">
+            <div class="row">
+                <h3 class="col">Information and Sponsorship Opportunities</h3>
+            </div>
+            <div class="row">
+                <h4 class="col">To inquire, email us at <a href="mailto:seventy-fifth@yjfc.org">seventy-fifth@yjfc.org</a></h4>
+            </div>
+        </section>
         <section id="memories">
             <div class="row">
                 <h3 class="col">Share Your YJFC Memories</h3>
@@ -116,7 +139,8 @@
             <div class="row">
                 <h6 class="col">Please give us a description of what they are and the stories they tell.  You can use the text area below or include a document with the upload.  If you have pictures of multiple events, please either submit the form separately each one or use the description to tell us which pictures are from which event.  The upload form will accept most kinds of pictures, videos, and audio files, as well text files, documents, and zip files.  Thanks for helping us keep track of the many memories we'll have to share!</h6>
             </div>
-            <form id="upload_form">
+            <form method="POST" action="php/uploads.php" id="upload_form" enctype="multipart/form-data">
+                <input type="hidden" name="upload_flag" id="upload_flag" value="1">
                 <div class="row">
                     <div class="col input-field">
                         <input type="text" name="upload_name" id="upload_name" class="validate required">
@@ -187,7 +211,8 @@
             <div class="row">
                 <h5 class="col">Use the form below to tell us about when you were in the club and your favorite memories of the time</h5>
             </div>
-            <form id="story_form">
+            <form method="POST" action="php/stories.php" id="story_form">
+                <input type="hidden" name="story_flag" id="story_flag" value="1">
                 <div class="row">
                     <div class="col input-field">
                         <input type="text" name="story_name" id="story_name" class="validate required">
@@ -233,14 +258,6 @@
                     </div>
                 </div>
             </form>
-        </section>
-        <section id="contact">
-            <div class="row">
-                <h3 class="col">Information and Sponsorship Opportunities</h3>
-            </div>
-            <div class="row">
-                <h4 class="col">Email us at <a href="mailto:seventy-fifth@yjfc.org">seventy-fifth@yjfc.org</a></h4>
-            </div>
         </section>
     </div>
 </body>
