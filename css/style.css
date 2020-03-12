@@ -10263,6 +10263,16 @@ form.working .dropzone.dz-drag-hover, form.complete .dropzone.dz-drag-hover, for
   -o-animation: slide-in 3s cubic-bezier(0.77, 0, 0.175, 1);
   animation: slide-in 3s cubic-bezier(0.77, 0, 0.175, 1);
 }
+.dropzone .dz-preview .dz-success-mark {
+  background: -moz-radial-gradient(center, ellipse cover, #4CAF50 45%, transparent 65%);
+  background: -webkit-radial-gradient(center, ellipse cover, #4CAF50 45%, transparent 65%);
+  background: radial-gradient(ellipse at center, #4CAF50 45%, transparent 65%);
+}
+.dropzone .dz-preview .dz-error-mark {
+  background: -moz-radial-gradient(center, ellipse cover, #F44336 45%, transparent 65%);
+  background: -webkit-radial-gradient(center, ellipse cover, #F44336 45%, transparent 65%);
+  background: radial-gradient(ellipse at center, #F44336 45%, transparent 65%);
+}
 .dropzone .dz-preview .dz-progress {
   top: 70%;
   background: rgba(255, 255, 255, 0.75);

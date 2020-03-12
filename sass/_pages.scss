@@ -198,10 +198,21 @@ form {
             visibility: hidden;
         }
 
-
         &.dz-success  .dz-success-mark {
             opacity: 1;
             @include prefix((animation: slide-in 3s cubic-bezier(0.770, 0.000, 0.175, 1.000)));
+        }
+
+        .dz-success-mark {
+            background: -moz-radial-gradient(center, ellipse cover, $success-color 45%, transparent 65%);
+            background: -webkit-radial-gradient(center, ellipse cover, $success-color 45%,transparent 65%);
+            background: radial-gradient(ellipse at center, $success-color 45%,transparent 65%);
+        }
+
+        .dz-error-mark {
+            background: -moz-radial-gradient(center, ellipse cover, $error-color 45%, transparent 65%);
+            background: -webkit-radial-gradient(center, ellipse cover, $error-color 45%,transparent 65%);
+            background: radial-gradient(ellipse at center, $error-color 45%,transparent 65%);
         }
 
         .dz-progress {

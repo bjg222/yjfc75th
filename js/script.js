@@ -72,6 +72,8 @@ function onUploadSubmit(ev) {
     }
     try {
         setWorking(form, upload_dropzone);
+        document.querySelector('#' + form + ' .overlay .error').classList.add('all');
+        document.querySelector('#' + form + ' .overlay .error').classList.remove('some');
         fetch(getUrl(form), {
             method: 'POST',
             body: makePostData(fields),
@@ -84,15 +86,23 @@ function onUploadSubmit(ev) {
             return new Promise((res, rej) => {
                 let errors = 0;
                 let onsending = (f, x, fd) => fd.append('upload_folder', folder);
+                let onsuccess = (f, resp) => {
+                    if (!resp.result) {
+                        f.previewElement.classList.remove('dz-success');
+                        upload_dropzone._errorProcessing([f], 'Server error: ' + resp.error, f.xhr);
+                    }
+                }
                 let onerror = f => errors++;
                 let onqueuecomplete = () => {
                     upload_dropzone.options.autoProcessQueue = false;
                     upload_dropzone.off('sending', onsending);
+                    upload_dropzone.off('success', onsuccess);
                     upload_dropzone.off('error', onerror);
                     upload_dropzone.off('queuecomplete', onqueuecomplete);
                     errors ? rej(errors) : res();
                 }
                 upload_dropzone.on('sending', onsending);
+                upload_dropzone.on('success', onsuccess);
                 upload_dropzone.on('error', onerror);
                 upload_dropzone.on('queuecomplete', onqueuecomplete);
                 upload_dropzone.options.autoProcessQueue = true;
@@ -109,8 +119,11 @@ function onUploadSubmit(ev) {
         ev.preventDefault();
     } catch {
         console.log('failed');
-        //TODO: Make sure this will send files
-        doSubmit(form)
+        //TODO: Make this actually send the files properly
+        // doSubmit(form)
+        document.querySelector('#' + form + ' .overlay .error').classList.add('all');
+        document.querySelector('#' + form + ' .overlay .error').classList.remove('some');
+        setError(form, upload_dropzone);
     }
 }
 
