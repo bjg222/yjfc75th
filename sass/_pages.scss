@@ -100,6 +100,18 @@ form {
         .spinner {
             padding: 0.2rem;
         }
+
+        .error {
+            .all,
+            .some {
+                display: none;
+            }
+
+            &.all .all,
+            &.some .some {
+                display: block;
+            }
+        }
     }
 
     &.working,
@@ -121,6 +133,25 @@ form {
 .dropzone {
     min-height: 25rem;
     border: $input-border;
+
+    &.dz-drag-hover {
+        outline: 5px color('amber', 'base') solid;
+        cursor: copy;
+    }
+
+    form.working &,
+    form.complete &,
+    form.error  & {
+        background: transparent;
+        cursor: default;
+
+        &.dz-drag-hover {
+            outline: 5px color('red', 'base') solid;
+            background: color('red', 'base');
+            cursor: not-allowed;
+            cursor: no-drop;
+        }
+    }
 
     .dz-preview {
 
@@ -165,6 +196,12 @@ form {
         &:not(.dz-processing) .dz-progress {
             animation: none;
             visibility: hidden;
+        }
+
+
+        &.dz-success  .dz-success-mark {
+            opacity: 1;
+            @include prefix((animation: slide-in 3s cubic-bezier(0.770, 0.000, 0.175, 1.000)));
         }
 
         .dz-progress {

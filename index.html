@@ -163,7 +163,7 @@
                 </div>
                 <div class="row above-overlay">
                     <div class="col input-field file-field">
-                        <div class="dropzone" id="dropzone" action="photos.php">
+                        <div class="dropzone" id="dropzone" action="php/uploads.php">
                             <div class="fallback">
                                 <div class="btn">
                                     <span>File</span>
@@ -173,7 +173,7 @@
                                     <input class="file-path" type="text" placeholder="Upload one or more files">
                                 </div>
                             </div>
-                            <h4 class="dz-message">Drag and drop your files here, or click to select them</h4>
+                            <h4 class="dz-message">Drag and drop your files onto this box, or click to select files</h4>
                         </div>
                     </div>
                 </div>
@@ -197,8 +197,10 @@
                     <div class="complete">
                         <h5 class="message">All saved, thanks for sharing!</h5>
                     </div>
-                    <div class="error">
+                    <div class="error all">
                         <h5 class="message">Sorry, an error has occured</h5>
+                        <h6 class="message all">File upload could not be started</h6>
+                        <h6 class="message some">Some files may not have uploaded</h6>
                         <h6 class="message"><a href="#" class="again">Try again</a> or <a href="#contact">Email us for assistance</a></h6>
                     </div>
                 </div>

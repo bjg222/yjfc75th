@@ -11,10 +11,11 @@ try {
     else {
         try {
             $file = preg_replace('/[^a-zA-Z0-9_-]+/', '-', $name . '_' . (new DateTime('now'))->format('Ymd-His-u'));
+            $file = realpath(getcwd() . '/../data/stories') . '/' . $file . '.txt';
             $contents = $name . PHP_EOL . $email . PHP_EOL . $descrip . PHP_EOL;
             // $out['file'] = $file;
             // $out['contents'] = $contents;
-            file_put_contents(realpath(getcwd() . '/../data/stories') . '/' . $file . '.txt', $contents);
+            file_put_contents($file, $contents);
             $out['result'] = true;
         } catch (Exception $e) {
             $out['error'] = 'file';

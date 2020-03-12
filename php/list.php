@@ -9,8 +9,9 @@ try {
         $out['error'] = 'invalid';
     else {
         try {
+            $file = realpath(getcwd() . '/../data/list.txt');
             $contents = '"' . str_replace('"', "'", $name) . '" <' . $email . '>' . PHP_EOL;
-            file_put_contents(realpath(getcwd() . '/../data/list.txt'), $contents, FILE_APPEND | LOCK_EX);
+            file_put_contents($file, $contents, FILE_APPEND | LOCK_EX);
             $out['result'] = true;
         } catch (Exception $e) {
             $out['error'] = 'file';

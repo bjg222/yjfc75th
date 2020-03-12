@@ -10193,6 +10193,13 @@ form .overlay .message {
 form .overlay .spinner {
   padding: 0.2rem;
 }
+form .overlay .error .all,
+form .overlay .error .some {
+  display: none;
+}
+form .overlay .error.all .all, form .overlay .error.some .some {
+  display: block;
+}
 form.working .overlay, form.complete .overlay, form.error .overlay {
   visibility: visible;
   opacity: 1;
@@ -10204,6 +10211,20 @@ form.working .working, form.complete .complete, form.error .error {
 .dropzone {
   min-height: 25rem;
   border: 0.08rem solid #9e9e9e;
+}
+.dropzone.dz-drag-hover {
+  outline: 5px #ffc107 solid;
+  cursor: copy;
+}
+form.working .dropzone, form.complete .dropzone, form.error .dropzone {
+  background: transparent;
+  cursor: default;
+}
+form.working .dropzone.dz-drag-hover, form.complete .dropzone.dz-drag-hover, form.error .dropzone.dz-drag-hover {
+  outline: 5px #F44336 solid;
+  background: #F44336;
+  cursor: not-allowed;
+  cursor: no-drop;
 }
 .dropzone .dz-preview .dz-image, .dropzone .dz-preview.dz-file-preview .dz-image,
 .dropzone .dz-preview .dz-details .dz-filename span,
@@ -10233,6 +10254,14 @@ form.working .working, form.complete .complete, form.error .error {
 .dropzone .dz-preview:not(.dz-processing) .dz-progress {
   animation: none;
   visibility: hidden;
+}
+.dropzone .dz-preview.dz-success .dz-success-mark {
+  opacity: 1;
+  -webkit-animation: slide-in 3s cubic-bezier(0.77, 0, 0.175, 1);
+  -moz-animation: slide-in 3s cubic-bezier(0.77, 0, 0.175, 1);
+  -ms-animation: slide-in 3s cubic-bezier(0.77, 0, 0.175, 1);
+  -o-animation: slide-in 3s cubic-bezier(0.77, 0, 0.175, 1);
+  animation: slide-in 3s cubic-bezier(0.77, 0, 0.175, 1);
 }
 .dropzone .dz-preview .dz-progress {
   top: 70%;
