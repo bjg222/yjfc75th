@@ -1,8 +1,8 @@
 [submodule "sass/materialize"]
 	path = sass/materialize
-	url = http://blackhole.bjg222.com:44253/git/billy/materialize.git
+	url = https://github.com/bjg222/materialize.git
 	branch = billy-sass-only
 [submodule "js/materialize"]
 	path = js/materialize
-	url = http://blackhole.bjg222.com:44253/git/billy/materialize.git
+	url = https://github.com/bjg222/materialize.git
 	branch = billy-js-only
