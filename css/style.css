@@ -4081,34 +4081,34 @@ a:visited, a:active {
 
 html {
   line-height: 1.2;
-  font-size: 14px;
+  font-size: 12px;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 400;
   color: #424242;
 }
 @media screen and (min-width: 301px) {
   html {
-    font-size: 14.5px;
+    font-size: 12.8px;
   }
 }
 @media screen and (min-width: 601px) {
   html {
-    font-size: 15px;
+    font-size: 13.6px;
   }
 }
 @media screen and (min-width: 901px) {
   html {
-    font-size: 15.5px;
+    font-size: 14.4px;
   }
 }
 @media screen and (min-width: 1201px) {
   html {
-    font-size: 16px;
+    font-size: 15.2px;
   }
 }
 @media screen and (min-width: 1801px) {
   html {
-    font-size: 16.5px;
+    font-size: 16px;
   }
 }
 
