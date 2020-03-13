@@ -137,7 +137,7 @@
                 <h5 class="col">Select your photos and videos using the form below</h5>
             </div>
             <div class="row">
-                <h6 class="col">Please give us a description of what they are and the stories they tell.  You can use the text area below or include a document with the upload.  If you have pictures of multiple events, please either submit the form separately each one or use the description to tell us which pictures are from which event.  The upload form will accept most kinds of pictures, videos, and audio files, as well text files, documents, and zip files.  Thanks for helping us keep track of the many memories we'll have to share!</h6>
+                <h6 class="col">Please give us a description of what they are and the stories they tell.  You can use the text area below or include a document with the upload.  If you have pictures of multiple events, please either submit the form separately each event or use the description to tell us which pictures are from which event.  The upload form will accept most kinds of pictures, videos, and audio files, as well text files, documents, and zip files with a size limit of 128MB per file.  If you have large files you want to share, <a href="#contact">email us for assistance</a>.  Thanks for helping us keep track of the many memories we'll have to share!</h6>
             </div>
             <form method="POST" action="php/uploads.php" id="upload_form" enctype="multipart/form-data">
                 <input type="hidden" name="upload_flag" id="upload_flag" value="1">
@@ -200,7 +200,7 @@
                     <div class="error all">
                         <h5 class="message">Sorry, an error has occured</h5>
                         <h6 class="message all">File upload could not be started</h6>
-                        <h6 class="message some">Some files may not have uploaded</h6>
+                        <h6 class="message some">Some files may not have uploaded or may be too large</h6>
                         <h6 class="message"><a href="#" class="again">Try again</a> or <a href="#contact">Email us for assistance</a></h6>
                     </div>
                 </div>
