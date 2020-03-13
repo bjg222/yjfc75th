@@ -12,7 +12,6 @@ try {
         $out['error'] = 'nofile';
     } else if ($folder) {
         $file = realpath(getcwd() . '/../data/uploads') . '/' . basename($folder) . '/' . $_FILES['file']['name'];
-        $out['filename'] = $file;
         if (move_uploaded_file($_FILES['file']['tmp_name'], $file))
             $out['result'] = true;
         else
