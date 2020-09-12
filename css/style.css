@@ -10140,6 +10140,10 @@ section .col {
   max-width: 500px;
 }
 
+#covid .col {
+  max-width: 1000px;
+}
+
 #deltamuseum {
   width: 100%;
   max-width: 300px;
